@@ -2,1135 +2,972 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#090e1b">
-<meta name="description" content="Chittidi Gnani Sri Venkata Sai Someswar (Venky), B.Tech CSE student at IIIT Raichur and aspiring AI/ML Engineer.">
-<title>Venky | Aspiring AI/ML Engineer</title>
-
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E💻%3C/text%3E%3C/svg%3E">
-
-<style>
-:root {
-  --bg:#090e1b;
-  --surface:#111b2e;
-  --card:#17243b;
-  --lime:#a8f078;
-  --mint:#7ce0d0;
-  --text:#f4f7ff;
-  --muted:#aab6ca;
-  --line:rgba(255,255,255,.1);
-}
-
-* {
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
-html {
-  scroll-behavior:smooth;
-  scroll-padding-top:85px;
-}
-
-body {
-  font-family:Inter,system-ui,Arial,sans-serif;
-  background:
-    radial-gradient(circle at 80% 0%,rgba(124,224,208,.08),transparent 30%),
-    var(--bg);
-  color:var(--text);
-  line-height:1.65;
-}
-
-a {
-  color:inherit;
-  text-decoration:none;
-}
-
-.container {
-  width:min(1100px,92%);
-  margin:auto;
-}
-
-header {
-  position:sticky;
-  top:0;
-  z-index:10;
-  background:rgba(9,14,27,.92);
-  backdrop-filter:blur(14px);
-  border-bottom:1px solid var(--line);
-}
-
-nav {
-  min-height:70px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-}
-
-.brand {
-  font-size:1.2rem;
-  font-weight:850;
-}
-
-.brand span,h1 span {
-  color:var(--lime);
-}
-
-.nav-links {
-  display:flex;
-  gap:19px;
-}
-
-.nav-links a {
-  color:var(--muted);
-  font-size:.88rem;
-}
-
-.nav-links a:hover,
-.nav-links a.active {
-  color:var(--lime);
-}
-
-.menu {
-  display:none;
-  background:transparent;
-  color:var(--text);
-  border:1px solid var(--line);
-  padding:8px 12px;
-  border-radius:9px;
-  cursor:pointer;
-}
-
-.hero {
-  min-height:620px;
-  display:grid;
-  grid-template-columns:1.2fr .8fr;
-  align-items:center;
-  gap:50px;
-  padding:75px 0;
-}
-
-.eyebrow,.kicker {
-  color:var(--lime);
-  font-size:.8rem;
-  font-weight:800;
-  letter-spacing:1.8px;
-  text-transform:uppercase;
-}
-
-.eyebrow:before {
-  content:'●';
-  margin-right:9px;
-}
-
-h1 {
-  font-size:clamp(2.8rem,6vw,5rem);
-  line-height:1.05;
-  letter-spacing:-2px;
-  margin:18px 0;
-}
-
-.headline {
-  font-size:1.1rem;
-  color:var(--mint);
-  font-weight:700;
-  margin-bottom:15px;
-}
-
-.intro,.desc {
-  color:var(--muted);
-  max-width:680px;
-}
-
-.actions {
-  display:flex;
-  gap:13px;
-  flex-wrap:wrap;
-  margin-top:27px;
-}
-
-.btn {
-  display:inline-block;
-  padding:11px 18px;
-  border:1px solid var(--line);
-  border-radius:11px;
-  font-weight:750;
-  cursor:pointer;
-  transition:.3s;
-  background:transparent;
-  color:var(--text);
-}
-
-.primary {
-  background:var(--lime);
-  color:#101827;
-  border-color:var(--lime);
-}
-
-.btn:hover {
-  transform:translateY(-3px);
-}
-
-.photo {
-  width:min(330px,75vw);
-  aspect-ratio:1;
-  border-radius:50%;
-  padding:8px;
-  background:linear-gradient(135deg,var(--lime),var(--mint));
-  box-shadow:0 0 50px #a8f07830;
-  justify-self:center;
-  animation:float 4s ease-in-out infinite;
-}
-
-.photo img {
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  object-position:center 25%;
-  border-radius:50%;
-  border:5px solid var(--bg);
-}
-
-section {
-  padding:70px 0;
-}
-
-.title {
-  font-size:clamp(2rem,4vw,2.8rem);
-  margin:7px 0 12px;
-  letter-spacing:-1px;
-}
-
-/* Added second font family for headings */
-h1,.title {
-  font-family:Georgia,"Times New Roman",serif;
-}
-
-.desc {
-  margin-bottom:28px;
-}
-
-.card {
-  background:linear-gradient(145deg,#17243b,#111b2e);
-  border:1px solid var(--line);
-  border-radius:20px;
-  padding:24px;
-  transition:.3s;
-}
-
-.card p {
-  color:var(--muted);
-}
-
-.card h3 {
-  margin-bottom:7px;
-}
-
-.card:hover {
-  transform:translateY(-5px);
-  border-color:var(--lime);
-  box-shadow:0 10px 30px #a8f07820;
-}
-
-.grid {
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:17px;
-}
-
-.stats {
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:13px;
-  margin-top:22px;
-}
-
-.stat {
-  background:#7ce0d010;
-  border:1px solid #7ce0d026;
-  padding:17px;
-  border-radius:14px;
-}
-
-.stat strong {
-  display:block;
-  color:var(--lime);
-  font-size:1.5rem;
-}
-
-.stat span,.muted {
-  color:var(--muted);
-  font-size:.85rem;
-}
-
-.timeline {
-  display:grid;
-  gap:15px;
-}
-
-.item {
-  display:grid;
-  grid-template-columns:140px 1fr;
-  gap:18px;
-}
-
-.year {
-  color:var(--lime);
-  font-weight:800;
-  padding-top:15px;
-}
-
-.meta {
-  color:var(--mint);
-  font-size:.9rem;
-  margin:4px 0 8px;
-}
-
-.skills {
-  display:flex;
-  flex-wrap:wrap;
-  gap:12px;
-}
-
-.skill {
-  background:var(--card);
-  border:1px solid var(--line);
-  padding:12px 15px;
-  border-radius:12px;
-  min-width:170px;
-  flex:1 1 170px;
-}
-
-.skill small {
-  display:block;
-  color:var(--muted);
-}
-
-.bar {
-  height:6px;
-  background:var(--line);
-  border-radius:9px;
-  margin-top:8px;
-  overflow:hidden;
-}
-
-.bar i {
-  display:block;
-  height:100%;
-  width:var(--w);
-  border-radius:9px;
-  background:linear-gradient(90deg,var(--lime),var(--mint));
-}
-
-.tag {
-  display:inline-block;
-  color:var(--lime);
-  background:#a8f07812;
-  border:1px solid #a8f07830;
-  padding:4px 9px;
-  border-radius:30px;
-  font-size:.75rem;
-  margin:10px 6px 0 0;
-}
-
-.status {
-  float:right;
-  color:var(--mint);
-  border:1px solid #7ce0d044;
-  border-radius:30px;
-  padding:3px 8px;
-  font-size:.7rem;
-}
-
-.proj-btn {
-  margin-top:14px;
-}
-
-.interests {
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:12px;
-}
-
-.interest {
-  background:var(--card);
-  border:1px solid var(--line);
-  border-radius:13px;
-  padding:15px;
-  color:var(--muted);
-}
-
-.mt {
-  margin-top:17px;
-}
-
-.mt2 {
-  margin-top:15px;
-}
-
-.contact {
-  display:grid;
-  grid-template-columns:.8fr 1.2fr;
-  gap:17px;
-}
-
-.links {
-  display:grid;
-  gap:12px;
-  margin-top:14px;
-}
-
-.links a {
-  color:var(--mint);
-  overflow-wrap:anywhere;
-}
-
-label {
-  color:var(--muted);
-  font-size:.85rem;
-}
-
-input,textarea {
-  width:100%;
-  padding:12px;
-  background:#0c1526;
-  color:var(--text);
-  border:1px solid var(--line);
-  border-radius:10px;
-  margin:6px 0 13px;
-  font:inherit;
-}
-
-input:focus,textarea:focus {
-  outline:2px solid var(--lime);
-}
-
-iframe {
-  width:100%;
-  height:260px;
-  border:0;
-  border-radius:15px;
-}
-
-.table-wrap {
-  overflow-x:auto;
-  border:1px solid var(--line);
-  border-radius:14px;
-  background:var(--surface);
-}
-
-table {
-  width:100%;
-  border-collapse:collapse;
-  text-align:left;
-  min-width:450px;
-}
-
-th,td {
-  padding:14px;
-  border-bottom:1px solid var(--line);
-}
-
-th {
-  color:var(--lime);
-  background:var(--card);
-}
-
-ul,ol {
-  padding-left:22px;
-  color:var(--muted);
-}
-
-footer {
-  border-top:1px solid var(--line);
-  padding:23px;
-  text-align:center;
-  color:var(--muted);
-  font-size:.85rem;
-}
-
-footer a {
-  color:var(--lime);
-}
-
-.cursor {
-  animation:blink 1s infinite;
-  color:var(--lime);
-}
-
-.reveal {
-  opacity:0;
-  transform:translateY(25px);
-  transition:opacity .6s,transform .6s;
-}
-
-.reveal.show {
-  opacity:1;
-  transform:none;
-}
-
-@keyframes float {
-  50% {transform:translateY(-12px)}
-}
-
-@keyframes blink {
-  50% {opacity:0}
-}
-
-a:focus-visible,button:focus-visible {
-  outline:2px solid var(--lime);
-  outline-offset:4px;
-}
-
-@media(max-width:780px) {
-  .hero {
-    grid-template-columns:1fr;
-    text-align:center;
-    gap:35px;
-    padding:55px 0;
-  }
-
-  .photo {width:225px}
-  .intro {margin:auto}
-  .actions {justify-content:center}
-
-  .nav-links {
-    display:none;
-    position:absolute;
-    top:70px;
-    left:0;
-    right:0;
-    background:#0d1729;
-    padding:18px;
-    flex-direction:column;
-    align-items:center;
-  }
-
-  .nav-links.open {display:flex}
-  .menu {display:block}
-  .grid,.contact {grid-template-columns:1fr}
-}
-
-@media(max-width:560px) {
-  section {padding:55px 0}
-  .stats {grid-template-columns:1fr}
-  .item {grid-template-columns:1fr;gap:0}
-  .interests {grid-template-columns:1fr 1fr}
-  h1 {letter-spacing:-1px}
-}
-
-@media(prefers-reduced-motion:reduce) {
-  *,*::before,*::after {
-    scroll-behavior:auto!important;
-    animation:none!important;
-    transition:none!important;
-  }
-  .reveal {opacity:1;transform:none}
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#090e1b">
+    <meta name="description" content="Personal portfolio of Chittidi Gnani Sri Venkata Sai Someswar, B.Tech CSE student at IIIT Raichur.">
+    <title>Venky | Aspiring AI/ML Engineer</title>
+
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E💻%3C/text%3E%3C/svg%3E">
+
+    <style>
+        :root {
+            --bg: #090e1b;
+            --surface: #111b2e;
+            --card: #17243b;
+            --lime: #a8f078;
+            --mint: #7ce0d0;
+            --text: #f4f7ff;
+            --muted: #aab6ca;
+            --line: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background:
+                radial-gradient(circle at 80% 0%, rgba(124, 224, 208, 0.08), transparent 30%),
+                var(--bg);
+            color: var(--text);
+            line-height: 1.65;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(1100px, 92%);
+            margin: auto;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: rgba(9, 14, 27, 0.96);
+            border-bottom: 1px solid var(--line);
+        }
+
+        nav {
+            min-height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+            padding-top: 12px;
+            padding-bottom: 12px;
+        }
+
+        .brand {
+            font-size: 1.2rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .brand span,
+        h1 span {
+            color: var(--lime);
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            font-size: 0.88rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--lime);
+        }
+
+        .hero {
+            min-height: 600px;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            align-items: center;
+            gap: 50px;
+            padding-top: 75px;
+            padding-bottom: 75px;
+        }
+
+        .eyebrow,
+        .kicker {
+            color: var(--lime);
+            font-size: 0.8rem;
+            font-weight: bold;
+            letter-spacing: 1.8px;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(2.8rem, 6vw, 5rem);
+            line-height: 1.08;
+            margin: 18px 0;
+        }
+
+        .headline {
+            color: var(--mint);
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .intro,
+        .desc {
+            color: var(--muted);
+            max-width: 680px;
+        }
+
+        .actions {
+            display: flex;
+            gap: 13px;
+            flex-wrap: wrap;
+            margin-top: 27px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 11px 18px;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            font-weight: bold;
+            transition: transform 0.3s, background-color 0.3s;
+            background: transparent;
+            color: var(--text);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+
+        .primary {
+            background: var(--lime);
+            color: #101827;
+            border-color: var(--lime);
+        }
+
+        .photo {
+            width: min(330px, 75vw);
+            aspect-ratio: 1;
+            border-radius: 50%;
+            padding: 8px;
+            background: linear-gradient(135deg, var(--lime), var(--mint));
+            box-shadow: 0 0 50px rgba(168, 240, 120, 0.18);
+            justify-self: center;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 25%;
+            border-radius: 50%;
+            border: 5px solid var(--bg);
+        }
+
+        section {
+            padding-top: 70px;
+            padding-bottom: 70px;
+        }
+
+        .title {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            margin: 7px 0 12px;
+        }
+
+        .desc {
+            margin-bottom: 28px;
+        }
+
+        .card {
+            background: linear-gradient(145deg, #17243b, #111b2e);
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            padding: 24px;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: var(--lime);
+        }
+
+        .card p {
+            color: var(--muted);
+        }
+
+        .card h3 {
+            margin-bottom: 7px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 17px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 13px;
+            margin-top: 22px;
+        }
+
+        .stat {
+            background: rgba(124, 224, 208, 0.06);
+            border: 1px solid rgba(124, 224, 208, 0.15);
+            padding: 17px;
+            border-radius: 13px;
+        }
+
+        .stat strong {
+            display: block;
+            color: var(--lime);
+            font-size: 1.5rem;
+        }
+
+        .stat span,
+        .muted {
+            color: var(--muted);
+            font-size: 0.85rem;
+        }
+
+        .timeline {
+            display: grid;
+            gap: 15px;
+        }
+
+        .item {
+            display: grid;
+            grid-template-columns: 140px 1fr;
+            gap: 18px;
+        }
+
+        .year {
+            color: var(--lime);
+            font-weight: bold;
+            padding-top: 15px;
+        }
+
+        .meta {
+            color: var(--mint);
+            font-size: 0.9rem;
+            margin: 4px 0 8px;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .skill {
+            background: var(--card);
+            border: 1px solid var(--line);
+            padding: 12px 15px;
+            border-radius: 12px;
+            min-width: 170px;
+            flex: 1 1 170px;
+        }
+
+        .skill small {
+            display: block;
+            color: var(--muted);
+        }
+
+        .bar {
+            height: 6px;
+            background: var(--line);
+            border-radius: 9px;
+            margin-top: 8px;
+            overflow: hidden;
+        }
+
+        .bar span {
+            display: block;
+            height: 100%;
+            border-radius: 9px;
+            background: linear-gradient(90deg, var(--lime), var(--mint));
+        }
+
+        .tag {
+            display: inline-block;
+            color: var(--lime);
+            background: rgba(168, 240, 120, 0.07);
+            border: 1px solid rgba(168, 240, 120, 0.2);
+            padding: 4px 9px;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            margin: 10px 6px 0 0;
+        }
+
+        .status {
+            float: right;
+            color: var(--mint);
+            border: 1px solid rgba(124, 224, 208, 0.3);
+            border-radius: 30px;
+            padding: 3px 8px;
+            font-size: 0.7rem;
+        }
+
+        .proj-btn {
+            margin-top: 14px;
+        }
+
+        .interests {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        .interest {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 13px;
+            padding: 15px;
+            color: var(--muted);
+        }
+
+        .mt {
+            margin-top: 17px;
+        }
+
+        .mt2 {
+            margin-top: 15px;
+        }
+
+        .contact {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 17px;
+        }
+
+        .links {
+            display: grid;
+            gap: 12px;
+            margin-top: 14px;
+        }
+
+        .links a {
+            color: var(--mint);
+            overflow-wrap: anywhere;
+        }
+
+        .table-wrap {
+            overflow-x: auto;
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            background: var(--surface);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            min-width: 450px;
+        }
+
+        th,
+        td {
+            padding: 14px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        th {
+            color: var(--lime);
+            background: var(--card);
+        }
+
+        ul,
+        ol {
+            padding-left: 22px;
+            color: var(--muted);
+        }
+
+        iframe {
+            width: 100%;
+            height: 260px;
+            border: 0;
+            border-radius: 15px;
+        }
+
+        footer {
+            border-top: 1px solid var(--line);
+            padding: 23px;
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.85rem;
+        }
+
+        footer a {
+            color: var(--lime);
+        }
+
+        @keyframes float {
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+
+        a:focus-visible {
+            outline: 2px solid var(--lime);
+            outline-offset: 4px;
+        }
+
+        @media (max-width: 780px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 35px;
+                padding-top: 55px;
+                padding-bottom: 55px;
+            }
+
+            .photo {
+                width: 225px;
+            }
+
+            .intro {
+                margin: auto;
+            }
+
+            .actions {
+                justify-content: center;
+            }
+
+            nav {
+                justify-content: center;
+            }
+
+            .nav-links {
+                justify-content: center;
+            }
+
+            .grid,
+            .contact {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 560px) {
+            section {
+                padding-top: 55px;
+                padding-bottom: 55px;
+            }
+
+            .stats,
+            .interests {
+                grid-template-columns: 1fr;
+            }
+
+            .item {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .year {
+                padding-top: 5px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            .photo,
+            .btn,
+            .card {
+                animation: none;
+                transition: none;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<header>
-<nav class="container" aria-label="Main navigation">
+    <header>
+        <nav class="container" aria-label="Main navigation">
+            <a class="brand" href="#home">VENKY<span>.</span></a>
+
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#education">Education</a>
+                <a href="#achievements">Achievements</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#leadership">Leadership</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- HOME SECTION -->
+        <section class="container hero" id="home">
+
+            <div>
+                <div class="eyebrow">B.Tech CSE · IIIT Raichur</div>
+
+                <h1>Hi, I'm <span>Venky</span>.</h1>
+
+                <p class="headline">Aspiring AI/ML Engineer</p>
 
-<a class="brand" href="#home">VENKY<span>.</span></a>
+                <p class="intro">
+                    I am Chittidi Gnani Sri Venkata Sai Someswar, currently pursuing
+                    a Bachelor of Technology (B.Tech) in Computer Science and
+                    Engineering at the Indian Institute of Information Technology
+                    (IIIT) Raichur. I am interested in Artificial Intelligence,
+                    Machine Learning and emerging technologies. I am working on
+                    building a strong foundation in computer science, improving
+                    my programming and problem-solving skills, and learning how
+                    technology can be used to solve real-world problems.
+                </p>
+
+                <div class="actions">
+                    <a class="btn primary" href="#projects">Explore My Projects</a>
+                    <a class="btn" href="#contact">Contact Me</a>
+                </div>
+            </div>
 
-<button class="menu" id="menu"
-type="button" aria-expanded="false"
-aria-controls="nav">
-Menu
-</button>
+            <div class="photo">
+                <img src="profile.jpg" alt="Portrait of Venky">
+            </div>
 
-<div class="nav-links" id="nav">
-<a href="#about">About</a>
-<a href="#education">Education</a>
-<a href="#achievements">Achievements</a>
-<a href="#skills">Skills</a>
-<a href="#projects">Projects</a>
-<a href="#leadership">Leadership</a>
-<a href="#contact">Contact</a>
-</div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section class="container" id="about">
+
+            <div class="kicker">Introduction</div>
+            <h2 class="title">About Me</h2>
 
-</nav>
-</header>
+            <p class="desc">
+                A curious learner focused on computer science, practical projects
+                and the possibilities of AI.
+            </p>
 
-<main>
+            <div class="card">
 
-<!-- HOME -->
+                <p>
+                    I believe that <em>learning never stops</em>. I enjoy exploring
+                    new ideas, understanding problems from different perspectives
+                    and challenging myself to improve every day. I value
+                    <u>discipline, teamwork, leadership and consistency</u>.
+                    My ambition is to become a technology professional who creates
+                    useful solutions that make a positive difference in people's lives.
+                </p>
 
-<section class="container hero" id="home">
-
-<div>
-<div class="eyebrow">B.Tech CSE · IIIT Raichur</div>
+                <div class="stats">
 
-<h1>Hi, I'm <span>Venky</span>.</h1>
-
-<p class="headline">
-<span id="typing">Aspiring AI/ML Engineer</span>
-<span class="cursor">|</span>
-</p>
-
-<p class="intro">
-I am Chittidi Gnani Sri Venkata Sai Someswar, currently pursuing a Bachelor of Technology (B.Tech) in Computer Science and Engineering at the Indian Institute of Information Technology (IIIT) Raichur. With a strong passion for Artificial Intelligence, Machine Learning, and emerging technologies, I am dedicated to building a solid foundation in computer science, strengthening my programming and problem-solving skills, and developing innovative, AI-driven solutions that address real-world challenges.
-</p>
-
-<div class="actions">
-<a class="btn primary" href="#projects">Explore my projects</a>
-<a class="btn" href="mailto:gnanichittidi@gmail.com">Contact me</a>
-</div>
-</div>
-
-<div class="photo">
-<img src="profile.jpg" alt="Portrait of Venky">
-</div>
-
-</section>
-
-<!-- ABOUT -->
-
-<section class="container reveal" id="about">
-
-<div class="kicker">Introduction</div>
-<h2 class="title">About Me</h2>
-
-<p class="desc">
-A curious learner focused on computer science,
-practical projects and the possibilities of AI.
-</p>
-
-<div class="card">
-
-<p>
-I believe that <em>learning never stops</em>. I enjoy exploring new ideas, understanding problems from different perspectives, and challenging myself to improve every day. I value <u>discipline, teamwork, leadership, and consistency</u>. I believe in learning concepts deeply and applying them through practical experience. My ambition is to become an innovative technology professional who creates meaningful solutions that make a positive difference in people's lives.
-</p>
-
-<div class="stats">
-
-<div class="stat">
-<strong>95.74</strong>
-<span>JEE Main percentile</span>
-</div>
-
-<div class="stat">
-<strong>98.6%</strong>
-<span>Intermediate marks</span>
-</div>
-
-<div class="stat">
-<strong>96.17%</strong>
-<span>10th standard result</span>
-</div>
-
-</div>
-</div>
-</section>
-
-<!-- EDUCATION -->
-
-<section class="container reveal" id="education">
-
-<div class="kicker">Academic journey</div>
-<h2 class="title">Education</h2>
-
-<p class="desc">
-My academic journey from school education
-to undergraduate studies.
-</p>
-
-<div class="timeline">
-
-<div class="item">
-<div class="year">2026 – Present</div>
-<div class="card">
-<h3>B.Tech – Computer Science and Engineering</h3>
-<div class="meta">
-Indian Institute of Information Technology (IIIT) Raichur
-</div>
-<p>First-year undergraduate student.</p>
-</div>
-</div>
-
-<div class="item">
-<div class="year">2024 – 2026</div>
-<div class="card">
-<h3>Intermediate</h3>
-<div class="meta">
-Venkateswara Junior College, Rajahmundry ·
-Board of Intermediate Education, Andhra Pradesh
-</div>
-<p><strong>98.6%</strong> · 2026</p>
-</div>
-</div>
-
-<div class="item">
-<div class="year">2024</div>
-<div class="card">
-<h3>Secondary School Certificate (SSC)</h3>
-<div class="meta">
-Roots School of Essential Faculties, Tanuku ·
-Andhra Pradesh SSC
-</div>
-<p><strong>96.17%</strong> · 2024</p>
-</div>
-</div>
-
-</div>
-</section>
-
-<!-- ACHIEVEMENTS -->
-
-<section class="container reveal" id="achievements">
-
-<div class="kicker">Academic highlights</div>
-<h2 class="title">Achievements</h2>
-
-<p class="desc">
-My academic milestones and achievements so far.
-</p>
-
-<div class="table-wrap">
-<table>
-<thead>
-<tr>
-<th scope="col">Achievement</th>
-<th scope="col">Result</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>JEE Main</td>
-<td>95.74 percentile</td>
-</tr>
-<tr>
-<td>Intermediate</td>
-<td>98.6%</td>
-</tr>
-<tr>
-<td>SSC</td>
-<td>96.17%</td>
-</tr>
-</tbody>
-</table>
-</div>
-
-</section>
-
-<!-- SKILLS -->
-
-<section class="container reveal" id="skills">
-
-<div class="kicker">What I'm learning</div>
-<h2 class="title">Technical Skills</h2>
-
-<p class="desc">
-Skills I am learning and practising as a first-year CSE student.
-</p>
-
-<div class="skills">
-
-<div class="skill">
-C Programming
-<small>Beginner</small>
-<div class="bar"><i style="--w:55%"></i></div>
-</div>
-
-<div class="skill">
-Python
-<small>Beginner</small>
-<div class="bar"><i style="--w:50%"></i></div>
-</div>
-
-<div class="skill">
-HTML
-<small>Intermediate</small>
-<div class="bar"><i style="--w:70%"></i></div>
-</div>
-
-<div class="skill">
-CSS
-<small>Intermediate</small>
-<div class="bar"><i style="--w:65%"></i></div>
-</div>
-
-<div class="skill">
-Linux
-<small>Beginner</small>
-<div class="bar"><i style="--w:35%"></i></div>
-</div>
-
-</div>
-</section>
-
-<!-- PROJECTS -->
-
-<section class="container reveal" id="projects">
-
-<div class="kicker">Selected work</div>
-<h2 class="title">Projects</h2>
-
-<p class="desc">
-Projects reflecting my interest in web development
-and accessible technology.
-</p>
-
-<div class="grid">
-
-<article class="card">
-
-<span class="status">Portfolio project</span>
-<h3>Personal Web Portfolio</h3>
-
-<p>
-A responsive personal website built with HTML and CSS
-to present my education, skills, projects and contact information.
-</p>
+                    <div class="stat">
+                        <strong>95.74</strong>
+                        <span>JEE Main percentile</span>
+                    </div>
+
+                    <div class="stat">
+                        <strong>98.6%</strong>
+                        <span>Intermediate marks</span>
+                    </div>
+
+                    <div class="stat">
+                        <strong>96.17%</strong>
+                        <span>10th standard result</span>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+
+        <!-- EDUCATION SECTION -->
+        <section class="container" id="education">
+
+            <div class="kicker">Academic journey</div>
+            <h2 class="title">Education</h2>
+
+            <p class="desc">
+                My academic journey from school education to undergraduate studies.
+            </p>
 
-<span class="tag">HTML</span>
-<span class="tag">CSS</span>
-<span class="tag">Responsive Design</span>
-
-<br>
-
-<a class="btn proj-btn"
-href="https://github.com/gnanichittidi"
-target="_blank" rel="noopener noreferrer">
-View on GitHub ↗
-</a>
+            <div class="timeline">
 
-</article>
+                <div class="item">
+                    <div class="year">2026 – Present</div>
 
-<article class="card">
+                    <div class="card">
+                        <h3>B.Tech – Computer Science and Engineering</h3>
 
-<span class="status">In development</span>
-<h3>AI-Powered Assistive Communication System</h3>
+                        <div class="meta">
+                            Indian Institute of Information Technology (IIIT) Raichur
+                        </div>
 
-<p>
-A laptop-based application concept intended to support
-communication and access to information through speech-to-text,
-text-to-speech and image-to-text features.
-</p>
+                        <p>First-year undergraduate student.</p>
+                    </div>
+                </div>
 
-<span class="tag">AI</span>
-<span class="tag">Speech Technology</span>
-<span class="tag">Accessibility</span>
+                <div class="item">
+                    <div class="year">2024 – 2026</div>
 
-<br>
+                    <div class="card">
+                        <h3>Intermediate</h3>
 
-<a class="btn proj-btn"
-href="https://github.com/gnanichittidi"
-target="_blank" rel="noopener noreferrer">
-View on GitHub ↗
-</a>
+                        <div class="meta">
+                            Venkateswara Junior College, Rajahmundry ·
+                            Board of Intermediate Education, Andhra Pradesh
+                        </div>
 
-</article>
+                        <p><strong>98.6%</strong> · 2026</p>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="year">2024</div>
+
+                    <div class="card">
+                        <h3>Secondary School Certificate (SSC)</h3>
+
+                        <div class="meta">
+                            Roots School of Essential Faculties, Tanuku ·
+                            Andhra Pradesh SSC
+                        </div>
 
-</div>
-</section>
+                        <p><strong>96.17%</strong> · 2024</p>
+                    </div>
+                </div>
 
-<!-- LEADERSHIP -->
+            </div>
+        </section>
 
-<section class="container reveal" id="leadership">
+        <!-- ACHIEVEMENTS SECTION -->
+        <section class="container" id="achievements">
 
-<div class="kicker">Responsibility</div>
-<h2 class="title">Leadership</h2>
+            <div class="kicker">Academic highlights</div>
+            <h2 class="title">Achievements</h2>
 
-<div class="card">
+            <p class="desc">
+                My academic milestones and achievements so far.
+            </p>
 
-<h3>Class Representative – CSE</h3>
-<div class="meta">IIIT Raichur · First Year</div>
+            <div class="table-wrap">
 
-<p>
-Serving as the Class Representative for the CSE first-year batch at IIIT Raichur. I help coordinate academic activities, communicate important announcements, share updates between students and faculty, and support effective class coordination. This responsibility is helping me develop leadership, teamwork, communication, and organizational skills.
-</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Achievement</th>
+                            <th scope="col">Result</th>
+                        </tr>
+                    </thead>
 
-<ul class="mt">
-<li>Coordinate class announcements and academic updates.</li>
-<li>Communicate student concerns to faculty.</li>
-<li>Support class activities and team coordination.</li>
-<li>Encourage participation and collaboration.</li>
-</ul>
+                    <tbody>
+                        <tr>
+                            <td>JEE Main</td>
+                            <td>95.74 percentile</td>
+                        </tr>
 
-</div>
-</section>
+                        <tr>
+                            <td>Intermediate</td>
+                            <td>98.6%</td>
+                        </tr>
 
-<!-- INTERESTS -->
+                        <tr>
+                            <td>SSC</td>
+                            <td>96.17%</td>
+                        </tr>
+                    </tbody>
+                </table>
 
-<section class="container reveal" id="interests">
+            </div>
+        </section>
 
-<div class="kicker">Beyond the classroom</div>
-<h2 class="title">Interests</h2>
+        <!-- SKILLS SECTION -->
+        <section class="container" id="skills">
 
-<div class="interests">
+            <div class="kicker">What I'm learning</div>
+            <h2 class="title">Technical Skills</h2>
 
-<div class="interest">Artificial Intelligence & Technology</div>
-<div class="interest">Programming & Coding</div>
-<div class="interest">Learning New Technologies</div>
-<div class="interest">Problem Solving</div>
-<div class="interest">Fitness & Gym</div>
+            <p class="desc">
+                Skills I am learning and practising as a first-year CSE student.
+            </p>
 
-</div>
+            <div class="skills">
 
-<div class="card mt">
+                <div class="skill">
+                    C Programming
+                    <small>Beginner</small>
+                    <div class="bar"><span style="width: 55%;"></span></div>
+                </div>
 
-<h3>Languages</h3>
-<p>Telugu · English (Intermediate) · Hindi</p>
+                <div class="skill">
+                    Python
+                    <small>Beginner</small>
+                    <div class="bar"><span style="width: 50%;"></span></div>
+                </div>
 
-<h3 class="mt2">Certifications</h3>
-<p>Currently learning; no certificates listed yet.</p>
+                <div class="skill">
+                    HTML
+                    <small>Intermediate</small>
+                    <div class="bar"><span style="width: 70%;"></span></div>
+                </div>
 
-</div>
+                <div class="skill">
+                    CSS
+                    <small>Intermediate</small>
+                    <div class="bar"><span style="width: 65%;"></span></div>
+                </div>
 
-<div class="card mt">
+                <div class="skill">
+                    Linux
+                    <small>Beginner</small>
+                    <div class="bar"><span style="width: 35%;"></span></div>
+                </div>
 
-<h3>My Learning Goals</h3>
+            </div>
+        </section>
 
-<ol class="mt">
-<li>Strengthen programming fundamentals.</li>
-<li>Improve problem-solving skills.</li>
-<li>Learn data structures and algorithms.</li>
-<li>Explore Artificial Intelligence and Machine Learning.</li>
-<li>Develop practical projects.</li>
-</ol>
+        <!-- PROJECTS SECTION -->
+        <section class="container" id="projects">
 
-</div>
+            <div class="kicker">Selected work</div>
+            <h2 class="title">Projects</h2>
 
-</section>
+            <p class="desc">
+                Projects reflecting my interest in web development and accessible technology.
+            </p>
 
-<!-- CONTACT -->
+            <div class="grid">
 
-<section class="container reveal" id="contact">
+                <article class="card">
 
-<div class="kicker">Let's connect</div>
-<h2 class="title">Contact</h2>
+                    <span class="status">Portfolio project</span>
+                    <h3>Personal Web Portfolio</h3>
 
-<p class="desc">
-Feel free to connect with me about technology,
-learning and project collaboration.
-</p>
+                    <p>
+                        A responsive personal website built with HTML and CSS
+                        to present my education, skills, projects and contact information.
+                    </p>
 
-<div class="contact">
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">Responsive Design</span>
 
-<div class="card">
+                    <br>
 
-<h3>Contact details</h3>
+                    <a class="btn proj-btn"
+                       href="https://github.com/gnanichittidi"
+                       target="_blank" rel="noopener noreferrer">
+                        View on GitHub
+                    </a>
 
-<div class="links">
+                </article>
 
-<a href="mailto:gnanichittidi@gmail.com">
-✉ gnanichittidi@gmail.com
-</a>
+                <article class="card">
 
-<a href="https://github.com/gnanichittidi"
-target="_blank" rel="noopener noreferrer">
-GitHub ↗
-</a>
+                    <span class="status">In development</span>
+                    <h3>AI-Powered Assistive Communication System</h3>
 
-<a href="https://www.linkedin.com/in/chittidi-gnani-sri-venkata-sai-someswar-b17ba6425/"
-target="_blank" rel="noopener noreferrer">
-LinkedIn ↗
-</a>
+                    <p>
+                        A laptop-based application concept intended to support
+                        communication and access to information through speech-to-text,
+                        text-to-speech and image-to-text features.
+                    </p>
 
-<a href="https://www.instagram.com/_gnani_97/"
-target="_blank" rel="noopener noreferrer">
-Instagram ↗
-</a>
+                    <span class="tag">AI</span>
+                    <span class="tag">Speech Technology</span>
+                    <span class="tag">Accessibility</span>
 
-</div>
-</div>
+                    <br>
 
-<div class="card">
+                    <a class="btn proj-btn"
+                       href="https://github.com/gnanichittidi"
+                       target="_blank" rel="noopener noreferrer">
+                        View on GitHub
+                    </a>
 
-<h3>Send a message</h3>
+                </article>
 
-<form id="contactForm">
+            </div>
+        </section>
 
-<label for="sender">Your name</label>
-<input id="sender" name="sender" required
-placeholder="Enter your name">
+        <!-- LEADERSHIP SECTION -->
+        <section class="container" id="leadership">
 
-<label for="senderEmail">Your email</label>
-<input id="senderEmail" name="senderEmail"
-type="email" required placeholder="you@example.com">
+            <div class="kicker">Responsibility</div>
+            <h2 class="title">Leadership</h2>
 
-<label for="message">Message</label>
-<textarea id="message" name="message" rows="4"
-required placeholder="Write your message..."></textarea>
+            <div class="card">
 
-<button class="btn primary" type="submit">
-Send via email
-</button>
+                <h3>Class Representative – CSE</h3>
 
-</form>
+                <div class="meta">IIIT Raichur · First Year</div>
 
-<p class="muted mt">
-This form opens your email application.
-It does not store messages on this website.
-</p>
+                <p>
+                    Serving as the Class Representative for the CSE first-year
+                    batch at IIIT Raichur. I help coordinate academic activities,
+                    communicate important announcements, share updates between
+                    students and faculty, and support class coordination. This
+                    responsibility is helping me develop leadership, teamwork,
+                    communication and organizational skills.
+                </p>
 
-</div>
-</div>
-</section>
+                <ul class="mt">
+                    <li>Coordinate class announcements and academic updates.</li>
+                    <li>Communicate student concerns to faculty.</li>
+                    <li>Support class activities and team coordination.</li>
+                    <li>Encourage participation and collaboration.</li>
+                </ul>
 
-<!-- INSTITUTE -->
+            </div>
+        </section>
 
-<section class="container reveal" id="institute">
+        <!-- INTERESTS SECTION -->
+        <section class="container" id="interests">
 
-<div class="kicker">Campus</div>
-<h2 class="title">My Institute</h2>
+            <div class="kicker">Beyond the classroom</div>
+            <h2 class="title">Interests</h2>
 
-<p class="desc">
-Indian Institute of Information Technology, Raichur.
-</p>
+            <div class="interests">
 
-<iframe
-title="Map showing IIIT Raichur"
-loading="lazy"
-src="https://www.google.com/maps?q=IIIT%20Raichur&output=embed">
-</iframe>
+                <div class="interest">Artificial Intelligence & Technology</div>
+                <div class="interest">Programming & Coding</div>
+                <div class="interest">Learning New Technologies</div>
+                <div class="interest">Problem Solving</div>
+                <div class="interest">Fitness & Gym</div>
 
-</section>
+            </div>
 
-</main>
+            <div class="card mt">
 
-<footer>
-<p>
-© <span id="year"></span> Venky · Built with curiosity and code.
-</p>
-<p><a href="#home">Back to top ↑</a></p>
-</footer>
+                <h3>Languages</h3>
+                <p>Telugu · English (Intermediate) · Hindi</p>
 
-<script>
+                <h3 class="mt2">Certifications</h3>
+                <p>Currently learning; no certificates listed yet.</p>
 
-// MOBILE NAVIGATION
+            </div>
 
-const menu = document.getElementById('menu');
-const nav = document.getElementById('nav');
+            <div class="card mt">
 
-menu.addEventListener('click', () => {
-  const open = nav.classList.toggle('open');
-  menu.setAttribute('aria-expanded', String(open));
-});
+                <h3>My Learning Goals</h3>
 
-nav.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    nav.classList.remove('open');
-    menu.setAttribute('aria-expanded', 'false');
-  });
-});
+                <ol class="mt">
+                    <li>Strengthen programming fundamentals.</li>
+                    <li>Improve problem-solving skills.</li>
+                    <li>Learn data structures and algorithms.</li>
+                    <li>Explore Artificial Intelligence and Machine Learning.</li>
+                    <li>Develop practical projects.</li>
+                </ol>
 
-// CURRENT YEAR
+            </div>
+        </section>
 
-document.getElementById('year').textContent =
-  new Date().getFullYear();
+        <!-- CONTACT SECTION -->
+        <section class="container" id="contact">
 
-// CONTACT FORM
+            <div class="kicker">Let's connect</div>
+            <h2 class="title">Contact</h2>
 
-document.getElementById('contactForm')
-.addEventListener('submit', event => {
+            <p class="desc">
+                Feel free to connect with me about technology, learning and project collaboration.
+            </p>
 
-  event.preventDefault();
+            <div class="contact">
 
-  const name = document.getElementById('sender').value.trim();
-  const email = document.getElementById('senderEmail').value.trim();
-  const message = document.getElementById('message').value.trim();
+                <div class="card">
 
-  const subject = encodeURIComponent(
-    'Portfolio contact from ' + name
-  );
+                    <h3>Contact details</h3>
 
-  const body = encodeURIComponent(
-    'From: ' + name +
-    '\nEmail: ' + email +
-    '\n\n' + message
-  );
+                    <div class="links">
 
-  window.location.href =
-    'mailto:gnanichittidi@gmail.com?subject=' +
-    subject + '&body=' + body;
+                        <a href="mailto:gnanichittidi@gmail.com">
+                            Email: gnanichittidi@gmail.com
+                        </a>
 
-});
+                        <a href="https://github.com/gnanichittidi"
+                           target="_blank" rel="noopener noreferrer">
+                            GitHub
+                        </a>
 
-// SCROLL ANIMATIONS
+                        <a href="https://www.linkedin.com/in/chittidi-gnani-sri-venkata-sai-someswar-b17ba6425/"
+                           target="_blank" rel="noopener noreferrer">
+                            LinkedIn
+                        </a>
 
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('show');
-      observer.unobserve(entry.target);
-    }
-  });
-}, {threshold:0.12});
+                        <a href="https://www.instagram.com/_gnani_97/"
+                           target="_blank" rel="noopener noreferrer">
+                            Instagram
+                        </a>
 
-document.querySelectorAll('.reveal,.card,.skill,.interest,.stat')
-.forEach(element => {
-  element.classList.add('reveal');
-  observer.observe(element);
-});
+                    </div>
+                </div>
 
-// TYPING ANIMATION
+                <div class="card">
 
-const words = [
-  "Aspiring AI/ML Engineer",
-  "B.Tech CSE Student",
-  "Python & C Learner"
-];
+                    <h3>Send a message</h3>
 
-let wordIndex = 0;
-let charIndex = 0;
-let deleting = false;
+                    <p>
+                        You can send me an email directly using the link below.
+                    </p>
 
-function type() {
+                    <a class="btn primary mt"
+                       href="mailto:gnanichittidi@gmail.com?subject=Portfolio%20Enquiry">
+                        Send an Email
+                    </a>
 
-  const currentWord = words[wordIndex];
+                </div>
 
-  document.getElementById('typing').textContent =
-    currentWord.slice(0,charIndex);
+            </div>
+        </section>
 
-  if (!deleting && charIndex < currentWord.length) {
-    charIndex++;
-  } else if (!deleting) {
-    deleting = true;
-    setTimeout(type,1200);
-    return;
-  } else if (charIndex > 0) {
-    charIndex--;
-  } else {
-    deleting = false;
-    wordIndex = (wordIndex + 1) % words.length;
-  }
+        <!-- INSTITUTE SECTION -->
+        <section class="container" id="institute">
 
-  setTimeout(type,deleting ? 45 : 90);
-}
+            <div class="kicker">Campus</div>
+            <h2 class="title">My Institute</h2>
 
-type();
+            <p class="desc">
+                Indian Institute of Information Technology, Raichur.
+            </p>
 
-// ACTIVE NAVIGATION
+            <iframe
+                title="Map showing IIIT Raichur"
+                loading="lazy"
+                src="https://www.google.com/maps?q=IIIT%20Raichur&output=embed">
+            </iframe>
 
-const sections = document.querySelectorAll('main section[id]');
+        </section>
 
-window.addEventListener('scroll', () => {
+    </main>
 
-  let current = '';
+    <footer>
 
-  sections.forEach(section => {
-    if (window.scrollY >= section.offsetTop - 130) {
-      current = section.id;
-    }
-  });
+        <p>© 2026 Venky · Built with curiosity and code.</p>
 
-  document.querySelectorAll('.nav-links a').forEach(link => {
-    link.classList.toggle(
-      'active',
-      link.getAttribute('href') === '#' + current
-    );
-  });
+        <p><a href="#home">Back to top</a></p>
 
-});
-
-</script>
+    </footer>
 
 </body>
 </html>
